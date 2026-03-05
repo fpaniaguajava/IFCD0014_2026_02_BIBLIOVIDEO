@@ -16,13 +16,13 @@
 
 <input type="text" placeholder="Buscar por título...">
 
-<select>
-<option value="">Todos los géneros</option>
-<option>Acción</option>
-<option>Drama</option>
-<option>Comedia</option>
-<option>Horror</option>
-</select>
+    <select>
+        <option value="">Todos los géneros</option>
+        <option th:each="genre : ${genres}"
+                th:value="${genre.getId()}"
+                th:text="${genre.getName()}">
+        </option>
+    </select>
 
 <button class="btn">Buscar</button>
 
