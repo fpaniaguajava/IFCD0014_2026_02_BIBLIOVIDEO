@@ -21,4 +21,12 @@ public class MainController {
         model.addAttribute("genres", genresList);
         return "index";
     }
+
+//    @GetMapping("/createChapuzaGenre")
+//    public String createGenre(Model model) {
+//        for (int i=1;i<=10;i++) {
+//            this.gs.createGenre(new Genre("Género " + i));
+//        }
+//        return "index";
+//    }
 }
