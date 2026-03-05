@@ -9,12 +9,12 @@ import java.util.List;
 @Service
 public class GenreService {
     public List<Genre> getAllGenres(){
-        List<Genre> generos = new ArrayList<>();
-        generos.add(new Genre(1, "Terror"));
-        generos.add(new Genre(2, "Comedia"));
-        generos.add(new Genre(3, "Acción"));
-        generos.add(new Genre(4, "Musical"));
-        return generos;
+        List<Genre> genres = new ArrayList<>();
+        genres.add(new Genre(1, "Terror"));
+        genres.add(new Genre(2, "Comedia"));
+        genres.add(new Genre(3, "Acción"));
+        genres.add(new Genre(4, "Musical"));
+        return genres;
     }
 
 }
