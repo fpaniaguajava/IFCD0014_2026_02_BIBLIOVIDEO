@@ -6,13 +6,11 @@ import com.cursospring.IFCD0014_2026_02_BIBLIOVIDEO.service.GenreService;
 import com.cursospring.IFCD0014_2026_02_BIBLIOVIDEO.service.MovieService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class MainController {
@@ -49,6 +47,13 @@ public class MainController {
     public String createMovie(@ModelAttribute Movie movie, Model model){
         this.ms.saveMovie(movie);
         return "redirect:/";
+    }
+
+    @GetMapping("/movie-detail/{id}")
+    public String showMovieDetail(@PathVariable int id, Model model) {
+        Optional<Movie> movie = this.ms.findById(id);
+        model.addAttribute("movie", movie);
+        return "movie-detail";
     }
 
 //    @GetMapping("/createChapuzaGenre")

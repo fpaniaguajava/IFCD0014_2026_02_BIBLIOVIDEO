@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MovieService {
@@ -20,4 +21,8 @@ public class MovieService {
         return imr.findAll();
     }
 
+    public Optional<Movie> findById(int id){
+        Optional<Movie> movie = imr.findById(id);
+        return movie;
+    }
 }

@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Detalle Película</title>
-<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <title>Detalle Película</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
 <div class="detail-container">
 
-<h1>Movie Title</h1>
+    <h1 th:text="${movie?.title}"></h1>
 
-<img src="https://via.placeholder.com/800x450">
+    <img src="https://via.placeholder.com/800x450">
 
-<p><strong>Género:</strong> Acción</p>
+    <p><strong>Género:</strong> Acción</p>
 
-<div class="actions">
-<button class="btn">▶ Reproducir</button>
-<button class="btn btn-danger">🗑 Borrar</button>
-</div>
+    <div class="actions">
+        <button class="btn">▶ Reproducir</button>
+        <button class="btn btn-danger">🗑 Borrar</button>
+    </div>
+    
 
-<video controls>
-<source src="movie.mp4" type="video/mp4">
-</video>
+    <iframe width="1024" height="768" th:src="${movie?.urlVideo}"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 </div>
 
