@@ -32,9 +32,16 @@ public class MainController {
         return "index";
     }
 
+    /*
     @GetMapping("/createMovie")
     public String createMovie(Model model) {
         model.addAttribute(new Movie());
+        return "new-movie";
+    }
+    */
+
+    @GetMapping("/createMovie")
+    public String createMovie(@ModelAttribute Movie movie) {
         return "new-movie";
     }
 
