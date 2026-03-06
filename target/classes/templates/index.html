@@ -9,7 +9,7 @@
 
 <div class="header">
 <h1>🎬 Movie Catalog</h1>
-<a class="btn" href="new-movie.html">+ Nueva Película</a>
+    <a th:href="@{/createMovie}" class="btn">Nueva película</a>
 </div>
 
 <div class="search-bar">
@@ -30,25 +30,17 @@
 
 <div class="movie-grid">
 
-<div class="movie-card">
-<a href="movie-detail.html">
-<img src="https://via.placeholder.com/300x400">
-</a>
-<div class="movie-info">
-<h3>Movie Title</h3>
-<div class="genre">Acción</div>
-</div>
-</div>
+    <div class="movie-card" th:each="movie : ${movies}">
+        <a th:href="@{/movie/{id}(id=${movie.id})}">
+            <img th:src="${movie.urlThumbnail}" th:alt="${movie.title}">
+        </a>
+        <div class="movie-info">
+            <h3 th:text="${movie.title}"></h3>
+            <!--<div class="genre" th:text="${movie.genre}"></div>-->
+        </div>
+    </div>
 
-<div class="movie-card">
-<a href="movie-detail.html">
-<img src="https://via.placeholder.com/300x400">
-</a>
-<div class="movie-info">
-<h3>Another Movie</h3>
-<div class="genre">Drama</div>
-</div>
-</div>
+
 
 </div>
 
