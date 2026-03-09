@@ -1,31 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Detalle Película</title>
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+<span th:replace="fragment_navbar :: navBar"></span>
 
 <div class="detail-container">
 
     <h1 th:text="${movie?.title}"></h1>
 
-    <img src="https://via.placeholder.com/800x450">
-
     <p><strong>Género:</strong> Acción</p>
 
-    <div class="actions">
-        <button class="btn">▶ Reproducir</button>
-        <button class="btn btn-danger">🗑 Borrar</button>
-    </div>
-
-
-    <iframe width="1024" height="768" th:src="${movie?.urlVideo}"
-            title="YouTube video player" frameborder="0"
+    <iframe width="560" height="315" th:src="'https://www.youtube.com/embed/' + ${movie?.urlVideo}"
+            title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+    <div class="actions">
+        <button class="btn btn-danger">🗑 Borrar</button>
+    </div>
 </div>
 
 </body>

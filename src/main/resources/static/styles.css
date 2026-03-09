@@ -142,6 +142,7 @@ body {
 
 .actions {
     margin-top: 15px;
+    margin-bottom: 15px;
     display: flex;
     gap: 10px;
 }
@@ -180,4 +181,52 @@ video {
     .movie-grid {
         grid-template-columns: 1fr;
     }
+}
+
+#counter {
+    background-color: chocolate;
+    color: black;
+    padding: 10px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline;
+    font-size: 0.9em;
+}
+
+iframe {
+    display: block;
+    margin: auto;
+}
+
+#barra-navegacion img {
+    height: 5em;
+}
+
+.navbar {
+    list-style: none;
+    background: #1e293b;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.navbar li {
+    display: inline;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 6px;
+    background: #5346e1;
+}
+
+.navbar a:hover {
+    background: #6366f1;
 }

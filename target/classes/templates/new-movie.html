@@ -6,6 +6,7 @@
     <link rel="stylesheet" th:href="@{/styles.css}">
 </head>
 <body>
+<span th:replace="fragment_navbar :: navBar"></span>
 
 <h1>Alta de Película</h1>
 
@@ -31,10 +32,10 @@
         <div class="form-group">
             <label>Género</label>
             <select name="genre">
-                <option value="1">Acción</option>
-                <option value="2">Drama</option>
-                <option value="3">Comedia</option>
-                <option value="4">Horror</option>
+                <option th:each="genre : ${genres}"
+                        th:value="${genre.getId()}"
+                        th:text="${genre.getName()}">
+                </option>
             </select>
         </div>
 

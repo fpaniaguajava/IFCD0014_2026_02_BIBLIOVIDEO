@@ -22,12 +22,13 @@ public class MovieController {
     }
 
     @GetMapping("/createMovie")
-    public String createMovie(@ModelAttribute Movie movie) {
+    public String createMovie(@ModelAttribute Movie movie, Model model) {
+        model.addAttribute("genres", this.gs.getAllGenres());
         return "new-movie";
     }
 
     @PostMapping("/createMovie")
-    public String createMovie(@ModelAttribute Movie movie, Model model){
+    public String createMovie(@ModelAttribute Movie movie){
         this.ms.saveMovie(movie);
         return "redirect:/";
     }
@@ -40,7 +41,7 @@ public class MovieController {
     }
 
     @PostMapping("/searchMovie")
-    public String searchMovie(@RequestParam String searchTitle, @RequestParam int searchGenre, Model model){
+    public String searchMovie(@RequestParam String searchTitle, @RequestParam Integer searchGenre, Model model){
         List<Genre> genresList = gs.getAllGenres();
         List<Movie> moviesList = ms.findByTitleAndGenre(searchTitle, searchGenre);
         model.addAttribute("genres", genresList);

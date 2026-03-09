@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
 <meta charset="UTF-8">
 <title>Movies</title>
@@ -7,6 +7,7 @@
 </head>
 <body>
 
+<span th:replace="fragment_navbar :: navBar"></span>
 <div class="header">
 <h1>🎬 Movie Catalog</h1>
     <a th:href="@{/createMovie}" class="btn">Nueva película</a>
@@ -24,11 +25,11 @@
             </select>
 
         <button class="btn">Buscar</button>
+        <div id="counter" th:text="${movies.size()}"></div>
     </form>
 </div>
 
 <div class="movie-grid">
-
     <div class="movie-card" th:each="movie : ${movies}">
         <a th:href="@{/movie-detail/{id}(id=${movie.id})}">
             <img th:src="${movie.urlThumbnail}" th:alt="${movie.title}">
