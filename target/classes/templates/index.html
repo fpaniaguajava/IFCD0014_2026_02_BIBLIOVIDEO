@@ -13,19 +13,18 @@
 </div>
 
 <div class="search-bar">
+    <form th:action="@{/searchMovie}" method="post">
+        <input type="text" placeholder="Buscar por título..." name="searchTitle">
+            <select name="searchGenre">
+                <option value="0">Todos los géneros</option>
+                <option th:each="genre : ${genres}"
+                        th:value="${genre.getId()}"
+                        th:text="${genre.getName()}">
+                </option>
+            </select>
 
-<input type="text" placeholder="Buscar por título...">
-
-    <select>
-        <option value="">Todos los géneros</option>
-        <option th:each="genre : ${genres}"
-                th:value="${genre.getId()}"
-                th:text="${genre.getName()}">
-        </option>
-    </select>
-
-<button class="btn">Buscar</button>
-
+        <button class="btn">Buscar</button>
+    </form>
 </div>
 
 <div class="movie-grid">

@@ -38,23 +38,7 @@ public class MainController {
     }
     */
 
-    @GetMapping("/createMovie")
-    public String createMovie(@ModelAttribute Movie movie) {
-        return "new-movie";
-    }
 
-    @PostMapping("/createMovie")
-    public String createMovie(@ModelAttribute Movie movie, Model model){
-        this.ms.saveMovie(movie);
-        return "redirect:/";
-    }
-
-    @GetMapping("/movie-detail/{id}")
-    public String showMovieDetail(@PathVariable int id, Model model) {
-        Optional<Movie> movie = this.ms.findById(id);
-        model.addAttribute("movie", movie);
-        return "movie-detail";
-    }
 
 //    @GetMapping("/createChapuzaGenre")
 //    public String createGenre(Model model) {

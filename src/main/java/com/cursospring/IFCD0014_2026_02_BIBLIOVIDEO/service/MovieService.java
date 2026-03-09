@@ -25,4 +25,14 @@ public class MovieService {
         Optional<Movie> movie = imr.findById(id);
         return movie;
     }
+
+    public List<Movie> findByTitleAndGenre(String title, int idGenre) {
+        if (idGenre==0) {
+            List<Movie> movies = imr.findByTitleContaining(title);
+            return movies;
+        } else {
+            List<Movie> movies = imr.findByTitleContainingAndGenreId(title, idGenre);
+            return movies;
+        }
+    }
 }

@@ -1,10 +1,12 @@
 package com.cursospring.IFCD0014_2026_02_BIBLIOVIDEO.service;
 
+import com.cursospring.IFCD0014_2026_02_BIBLIOVIDEO.model.Genre;
 import com.cursospring.IFCD0014_2026_02_BIBLIOVIDEO.model.Movie;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -16,7 +18,7 @@ class MovieServiceTest {
 
 
     public void createMovie(){
-        ms.saveMovie(new Movie("Pesadilla en Elm Street", "https://i.ytimg.com/vi/JMT0dqE-ozs/sddefault.jpg", "https://youtu.be/JMT0dqE-ozs?si=pNErWURoBLrJkPEe"));
+        //ms.saveMovie(new Movie("Pesadilla en Elm Street", "https://i.ytimg.com/vi/JMT0dqE-ozs/sddefault.jpg", "https://youtu.be/JMT0dqE-ozs?si=pNErWURoBLrJkPEe", new Genre()));
     }
 
     @Test

@@ -1,9 +1,6 @@
 package com.cursospring.IFCD0014_2026_02_BIBLIOVIDEO.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Movie {
@@ -13,22 +10,26 @@ public class Movie {
     private String title;
     private String urlThumbnail;
     private String urlVideo;
-    //private Genre genre;
+    @ManyToOne
+    @JoinColumn(name="id_genero")
+    private Genre genre;
 
     public Movie() {
     }
 
-    public Movie(String title, String urlThumbnail, String urlVideo) {
+    public Movie(String title, String urlThumbnail, String urlVideo, Genre genre) {
         this.title = title;
         this.urlThumbnail = urlThumbnail;
         this.urlVideo = urlVideo;
+        this.genre = genre;
     }
 
-    public Movie(int id, String title, String urlThumbnail, String urlVideo) {
+    public Movie(int id, String title, String urlThumbnail, String urlVideo, Genre genre) {
         this.id = id;
         this.title = title;
         this.urlThumbnail = urlThumbnail;
         this.urlVideo = urlVideo;
+        this.genre = genre;
     }
 
     public int getId() {
@@ -63,6 +64,14 @@ public class Movie {
         this.urlVideo = urlVideo;
     }
 
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
+    }
+
     @Override
     public String toString() {
         return "Movie{" +
@@ -70,6 +79,7 @@ public class Movie {
                 ", title='" + title + '\'' +
                 ", urlThumbnail='" + urlThumbnail + '\'' +
                 ", urlVideo='" + urlVideo + '\'' +
+                ", genre=" + genre +
                 '}';
     }
 }
