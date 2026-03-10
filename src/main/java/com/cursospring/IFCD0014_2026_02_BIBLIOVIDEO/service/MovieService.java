@@ -35,4 +35,8 @@ public class MovieService {
             return movies;
         }
     }
+
+    public void deleteMovie(Integer id) {
+        imr.deleteById(id);
+    }
 }

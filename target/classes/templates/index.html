@@ -35,7 +35,7 @@
             <img th:src="${movie.urlThumbnail}" th:alt="${movie.title}">
         </a>
         <div class="movie-info">
-            <h3 th:text="${movie.title}"></h3>
+            <h3 th:text="${movie.title} + ':' + ${movie.getGenre().getName()}"></h3>
             <!--<div class="genre" th:text="${movie.genre}"></div>-->
         </div>
     </div>

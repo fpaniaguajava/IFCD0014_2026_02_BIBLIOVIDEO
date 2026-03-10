@@ -48,4 +48,10 @@ public class MovieController {
         model.addAttribute("movies", moviesList);
         return "index";
     }
+
+    @GetMapping("/deleteMovie/{id}")
+    public String deleteMovie(@PathVariable Integer id, Model model) {
+        this.ms.deleteMovie(id);
+        return "redirect:/";
+    }
 }
