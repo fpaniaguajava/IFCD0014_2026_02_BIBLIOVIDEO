@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
+@RequestMapping("/movie/")
 public class MovieController {
     private GenreService gs;
     private MovieService ms;
@@ -21,26 +22,26 @@ public class MovieController {
         this.ms = ms;
     }
 
-    @GetMapping("/createMovie")
+    @GetMapping("/create")
     public String createMovie(@ModelAttribute Movie movie, Model model) {
         model.addAttribute("genres", this.gs.getAllGenres());
         return "new-movie";
     }
 
-    @PostMapping("/createMovie")
+    @PostMapping("/create")
     public String createMovie(@ModelAttribute Movie movie){
         this.ms.saveMovie(movie);
         return "redirect:/";
     }
 
-    @GetMapping("/movie-detail/{id}")
+    @GetMapping("/detail/{id}")
     public String showMovieDetail(@PathVariable int id, Model model) {
         Optional<Movie> movie = this.ms.findById(id);
         model.addAttribute("movie", movie);
         return "movie-detail";
     }
 
-    @PostMapping("/searchMovie")
+    @PostMapping("/search")
     public String searchMovie(@RequestParam String searchTitle, @RequestParam Integer searchGenre, Model model){
         List<Genre> genresList = gs.getAllGenres();
         List<Movie> moviesList = ms.findByTitleAndGenre(searchTitle, searchGenre);
@@ -49,7 +50,7 @@ public class MovieController {
         return "index";
     }
 
-    @GetMapping("/deleteMovie/{id}")
+    @GetMapping("/delete/{id}")
     public String deleteMovie(@PathVariable Integer id, Model model) {
         this.ms.deleteMovie(id);
         return "redirect:/";

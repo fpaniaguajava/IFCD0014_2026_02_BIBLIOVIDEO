@@ -20,7 +20,7 @@
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
     <div class="actions">
-        <a th:href="@{/deleteMovie/{id}(id=${movie?.id})}">
+        <a th:href="@{/movie/delete/{id}(id=${movie?.id})}">
             <button class="btn btn-danger">Borrar</button>
         </a>
     </div>
